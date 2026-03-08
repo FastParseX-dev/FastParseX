@@ -1,15 +1,14 @@
+#include <fastparsex/fastparsex.hpp>
 #include <iostream>
-// #include <fastparsex/csv/parser.hpp>
 
 int main() {
-    std::cout << "CSV parsing example placeholder" << std::endl;
+    fp::CSVParser parser("data.csv");
 
-    // Example usage:
-    // fp::CSVParser parser("data.csv");
-    // parser.parse();
-    // for (auto& row : parser.rows()) {
-    //     // process row
-    // }
-
-    return 0;
+    fp::RowView row;
+    while (parser.next_row(row)) {
+        for (auto& f : row.fields) {
+            std::cout << "[" << f << "] ";
+        }
+        std::cout << "\n";
+    }
 }
