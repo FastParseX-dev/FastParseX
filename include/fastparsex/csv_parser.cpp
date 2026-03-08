@@ -1,8 +1,8 @@
 #pragma once
-#include "file_reader.hpp"
-#include "config.hpp"
-#include "types.hpp"
+
 #include <string>
+#include "fastparsex/csv/config.hpp"
+#include "fastparsex/file_reader.hpp"
 
 namespace fp {
 
