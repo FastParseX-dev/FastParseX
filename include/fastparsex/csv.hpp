@@ -1,11 +1,5 @@
 #pragma once
 
-namespace fp {
-
-class CSVParser {
-public:
-    CSVParser(const char* path) {}
-    void parse() {}
-};
-
-} // namespace fp
+#include "fastparsex/csv/csv_parser.hpp"
+#include "fastparsex/csv/csv_reader.hpp"
+#include "fastparsex/csv/config.hpp"
