@@ -1,21 +1,14 @@
 FastParseX
+
 High‑performance C++ parsing engine for CSV, logs, and binary data.
 Designed for maximum throughput, minimal overhead, and seamless integration into data‑intensive pipelines.
 
-FastParseX provides:
-• ultra‑fast CSV parsing
-• parallel parsing engine
-• memory‑mapped I/O
-• log processing
-• binary parsing
-• streaming profiling
-• Arrow / Parquet export (Pro)
-
 ---
 
-FEATURES
+Features
 
-Core
+Core features:
+
 • CSV parser
 • Log parser
 • Binary parser
@@ -23,42 +16,48 @@ Core
 • Buffered I/O
 • Zero‑copy internal pipelines
 
-Performance
+
+Performance features:
+
 • Parallel parsing engine
 • Thread‑pool scheduler
 • SIMD‑ready architecture
 • Compression support (gzip, xz, zstd)
 
-Analytics
+
+Analytics:
+
 • Streaming profiling engine
 • Column statistics
 • Performance counters
 
-Export
+
+Export:
+
 • Arrow export (Community + Pro)
 • Parquet export (Pro only)
 
+
 ---
 
-ARCHITECTURE
+Architecture
 
-FastParseX module layout:
+FastParseX is organized into modular components:
 
-FastParseX
-├── core
-├── csv
-├── log
-├── binary
-├── compress
-├── parallel
-├── profiling
-└── export
+core
+csv
+log
+binary
+compress
+parallel
+profiling
+export
 
 Each module is isolated, testable, and optimized for high‑throughput workloads.
 
 ---
 
-INSTALLATION
+Installation
 
 FastParseX uses CMake as its build system.
 
@@ -73,7 +72,8 @@ sudo cmake –install .
 
 ---
 
-USAGE EXAMPLES
+Usage Examples
+
 
 Example 1 — CSV parsing
 
@@ -87,6 +87,8 @@ for (auto& row : parser.rows()) {
 }
 }
 
+
+
 Example 2 — Parallel CSV parsing
 
 #include <fastparsex/parallel/parallel_csv.hpp>
@@ -96,67 +98,88 @@ fp::ParallelCSVParser parser(“big.csv”);
 parser.parse_parallel();
 }
 
+
+
 Example 3 — Log parsing
 
 fp::LogParser logp(“server.log”);
 logp.parse();
+
+
 
 Example 4 — Binary parsing
 
 fp::BinaryParser bp(“data.bin”);
 bp.parse();
 
+
+
 Example 5 — Arrow export
 
 fp::ArrowWriter writer;
 writer.write(table, “output.arrow”);
 
+
 ---
 
-BENCHMARKS
+Benchmarks
 
-Operation Throughput
-CSV parsing ~1–4 GB/s
-Parallel CSV parsing ~4–8 GB/s
-Arrow export ~3 GB/s
+CSV parsing: approximately 1–4 GB/s
+Parallel CSV parsing: approximately 4–8 GB/s
+Arrow export: approximately 3 GB/s
 
 Benchmarks performed on modern multi‑core CPUs with NVMe storage.
 
 ---
 
-COMMUNITY VS PRO (only in Pro README)
+Community Edition vs Pro Edition
 
-Feature                    Community    Pro
-CSV parsing                   ✓         ✓
-Parallel parsing              ✓         ✓
-Compression                   ✓         ✓
-Profiling                     ✓         ✓
-Arrow export                  ✓         ✓
-Parquet export                ✗         ✓
-Advanced benchmarks           ✗         ✓
-Extended profiling            ✗         ✓
+Community Edition includes:
+
+• CSV parser
+• Log parser
+• Binary parser
+• Memory‑mapped I/O
+• Buffered I/O
+• Compression (gzip, xz, zstd)
+• Parallel parsing
+• Profiling engine
+• Arrow export
+• Basic benchmarks
+
+
+Pro Edition includes everything in the Community Edition plus:
+
+• Parquet export
+• Advanced benchmarks
+• Extended profiling and advanced column metrics
+• Additional documentation
+• Additional examples
+
 
 ---
 
-ROADMAP
+Roadmap
 
 Planned improvements:
+
 • SIMD CSV scanner
 • Streaming Arrow export
 • Improved compression pipelines
 • GPU‑assisted parsing
 • Distributed parsing engine
 
+
 ---
 
-LICENSE
+License
 
 Community Edition: MIT License
 Pro Edition: Commercial license (see pro_license.txt)
 
 ---
 
-CONTRIBUTING
+Contributing
 
 Contributions are welcome.
 To contribute:
@@ -170,10 +193,11 @@ Please follow the coding style and module structure.
 
 ---
 
-LINKS
+Links
 
 Documentation: docs/
 Examples: examples/
 Benchmarks: benchmarks/
 Pro Edition: (insert purchase link)
 
+---
