@@ -198,6 +198,6 @@ Links
 Documentation: docs/
 Examples: examples/
 Benchmarks: benchmarks/
-Pro Edition: (insert purchase link)
+Pro Edition: ()
 
 ---
