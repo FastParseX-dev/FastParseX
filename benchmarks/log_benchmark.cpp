@@ -1,16 +1,19 @@
-#include <chrono>
+#include <fastparsex/fastparsex.hpp>
 #include <iostream>
+#include "benchmark_utils.hpp"
 
 int main() {
-    std::cout << "Log benchmark placeholder" << std::endl;
+    const std::string path = "sample.log";
+    size_t size = bench::file_size(path);
 
-    auto start = std::chrono::high_resolution_clock::now();
+    fp::LogParser parser(path);
+    parser.on_record([](const auto&) {});
 
-    // TODO: integrate FastParseX Log parser here
+    bench::Timer t;
+    t.tic();
 
-    auto end = std::chrono::high_resolution_clock::now();
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    parser.parse();
 
-    std::cout << "Elapsed: " << ms << " ms" << std::endl;
-    return 0;
+    double seconds = t.toc();
+    bench::print_result("LOG Benchmark", seconds, size);
 }
