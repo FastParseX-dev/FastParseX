@@ -1,11 +1,4 @@
 #pragma once
 
-namespace fp {
-
-class BinaryParser {
-public:
-    BinaryParser(const char* path) {}
-    void parse() {}
-};
-
-} // namespace fp
+#include "fastparsex/binary/binary_parser.hpp"
+#include "fastparsex/binary/binary_reader.hpp"
