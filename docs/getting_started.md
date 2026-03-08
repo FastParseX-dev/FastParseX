@@ -19,12 +19,20 @@ sudo cmake --install .
 
 Example: parsing a CSV file
 
-#include <fastparsex/csv/parser.hpp>
+#include <fastparsex/csv/csv_parser.hpp>
 
 int main() {
     fp::CSVParser parser("data.csv");
-    parser.parse();
+    fp::RowView row;
+
+    while (parser.next_row(row)) {
+        for (auto& field : row.fields) {
+            // usa il campo
+        }
+    }
+
     return 0;
 }
+
 
 More examples are available in the examples/ directory.
