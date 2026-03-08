@@ -1,21 +1,21 @@
 #include <fastparsex/fastparsex.hpp>
-#include <chrono>
 #include <iostream>
+#include "benchmark_utils.hpp"
 
 int main() {
-    auto start = std::chrono::high_resolution_clock::now();
+    const std::string path = "sample.csv";
+    size_t size = bench::file_size(path);
 
-    fp::CSVParser parser("data.csv");
+    fp::CSVParser parser(path);
     fp::RowView row;
 
-    size_t count = 0;
+    bench::Timer t;
+    t.tic();
+
     while (parser.next_row(row)) {
-        count++;
+        // No-op: just iterate
     }
 
-    auto end = std::chrono::high_resolution_clock::now();
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-
-    std::cout << "Parsed rows: " << count << "\n";
-    std::cout << "Time: " << ms << " ms\n";
+    double seconds = t.toc();
+    bench::print_result("CSV Benchmark", seconds, size);
 }
