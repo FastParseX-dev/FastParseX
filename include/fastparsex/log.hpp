@@ -1,11 +1,5 @@
 #pragma once
 
-namespace fp {
-
-class LogParser {
-public:
-    LogParser(const char* path) {}
-    void parse() {}
-};
-
-} // namespace fp
+#include "fastparsex/log/log_config.hpp"
+#include "fastparsex/log/log_parser.hpp"
+#include "fastparsex/log/log_reader.hpp"
