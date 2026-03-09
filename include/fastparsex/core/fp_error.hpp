@@ -34,4 +34,4 @@ private:
     std::string message_;
 };
 
-} // namespace fastparsex::core
+} 
